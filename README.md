@@ -2,10 +2,14 @@
 
 ## Introduction
 ECMAScript 6 is the upcoming version of the ECMAScript standard.  This standard is targeting ratification in December 2014.  ES6 is a significant update to the language, and the first update to the language since ES5 was standardized in 2009.    Implementation of these features in major JavaScript engines is [underway now](http://kangax.github.io/es5-compat-table/es6/).
+ECMAScript 6 é a próxima versão do padrão ECMAScript. A norma deverá ser ratificada em Dezembro de 2014. ES6 é um upgrade significativo na linguagem, e a primeira atualização desde que foi padronizada em 2009. A Veja a implementação dessas funcionalidades noas principais engines de javascript no link [Tabela de Compatibilidade do ECMAScript 6](http://kangax.github.io/es5-compat-table/es6/).
 
 See the [draft ES6 standard](https://people.mozilla.org/~jorendorff/es6-draft.html) for full specification of the ECMAScript 6 language.
+Veja 
+Veja o [proposta de padrão ES6] (https://people.mozilla.org/ ~ jorendorff/es6-draft.html) para a especificação completa da linguagem ECMAScript 6.
 
 ES6 includes the following new features:
+ES^inclui as seguintes novas funcionalidades:
 - [arrows](#arrows)
 - [classes](#classes)
 - [enhanced object literals](#enhanced-object-literals)
@@ -30,19 +34,25 @@ ES6 includes the following new features:
 - [tail calls](#tail-calls)
 
 ## ECMAScript 6 Features
+## Funcionalidades ECMAScript 6
 
 ### Arrows
 Arrows are a function shorthand using the `=>` syntax.  They are syntactically similar to the related feature in C#, Java 8 and CoffeeScript.  They support both expression and statement bodies.  Unlike functions, arrows share the same lexical `this` as their surrounding code.
+_Arrows_ são abreviações de func'ões usando a sintaxe `=>`. Elas são semelhantes semanticamente  ao recurso equivalente do C#, Java 8 e do CoffeeScript. Elas supotam expressões ou conjuntos de instruções. Ao conrário de _function_, _arrows_ compartilham o mesmo `this` que o do código que o envolve.
 
 ```JavaScript
 // Expression bodies
 var odds = evens.map(v => v + 1);
 var nums = evens.map((v, i) => v + i);
+// Expressões
+var oares   = evens.map(v => v + 1);
+var numeros = evens.map((v, i) => v + i);
 
 // Statement bodies
-nums.forEach(v => {
+// Conjuntos de instruções
+numeros.forEach(v => {
   if (v % 5 === 0)
-    fives.push(v);
+    listaCincos.push(v);
 });
 
 // Lexical this
@@ -54,10 +64,20 @@ var bob = {
       console.log(this._name + " knows " + f));
   }
 }
+// "this" léxico
+var joao = {
+  _nome: "João",
+  _amigos: [],
+  listaAmigos() {
+    this._amigos.forEach(f =>
+      console.log( this._nome + " conhece " + f) );
+  }
+}
 ```
 
 ### Classes
 ES6 classes are a simple sugar over the prototype-based OO pattern.  Having a single convenient declarative form makes class patterns easier to use, and encourages interoperability.  Classes support prototype-based inheritance, super calls, instance and static methods and constructors.
+Classes ES6 são o padrão _prototype_ melhorado. Ter uma única e conveniente forma declarativa fazem os padrões de classes mais fáceis de usar e icentivam a interoperabilidade. Classes suportam herança no modelo _ prototype, _super calls_, instanciamento, métodos estáticos e construtores.
 
 ```JavaScript
 class SkinnedMesh extends THREE.Mesh {
@@ -80,7 +100,10 @@ class SkinnedMesh extends THREE.Mesh {
 ```
 
 ### Enhanced Object Literals
+### Object Literals aprimorados
+
 Object literals are extended to support setting the prototype at construction, shorthand for `foo: foo` assignments, defining methods and making super calls.  Together, these also bring object literals and class declarations closer together, and let object-based design benefit from some of the same conveniences.
+_Object literals_  foram extendidos para facilitar definir o _prototype_ construção, uma abreviação para definições `foo: foo` , definir métodos e fazer _super calls_. Juntos, eles também trazem literais de objeto e declarações de classe mais próximos, e deixam  benefício design baseado em objeto de algumas das mesmas conveniências.
 
 ```JavaScript
 var obj = {
