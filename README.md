@@ -9,7 +9,7 @@ Veja
 Veja o [proposta de padrão ES6] (https://people.mozilla.org/ ~ jorendorff/es6-draft.html) para a especificação completa da linguagem ECMAScript 6.
 
 ES6 includes the following new features:
-ES^inclui as seguintes novas funcionalidades:
+ES inclui as seguintes novas funcionalidades:
 - [arrows](#arrows)
 - [classes](#classes)
 - [enhanced object literals](#enhanced-object-literals)
@@ -123,19 +123,28 @@ var obj = {
 
 ### Template Strings
 Template strings provide syntactic sugar for constructing strings.  This is similar to string interpolation features in Perl, Python and more.  Optionally, a tag can be added to allow the string construction to be customized, avoiding injection attacks or constructing higher level data structures from string contents.
+Template strings tornam muito fácil gerar _strings_. Ë semelhante à interpolação de _strings_ do Perl, Python e outros. Opcionalmente podmeos adicionar uma _tag_ que permitem a construção de uma string personalizada, evitando ataques com inserção de código ou montando estruturas de dados a partir do conteúdo de _strings_.
 
 ```JavaScript
 // Basic literal string creation
 `In JavaScript '\n' is a line-feed.`
+// Construção básica de uma string literal
+`Em javascript '\n' é uam quebra de linha.`
 
 // Multiline strings
 `In JavaScript this is
  not legal.`
+// Strings multilinha
+`Isto não funciona
+ em Javascript.`
 
 // Construct a DOM query
 var name = "Bob", time = "today";
 `Hello ${name}, how are you ${time}?`
+// Contruindo uma query ao DOM
+`Olá ${nome}, como está o ${nome_amigo}?`
 
+// Montar um prefixo de requisição HTTP para interpretar as substituições e construção
 // Construct an HTTP request prefix is used to interpret the replacements and construction
 GET`http://foo.org/bar?a=${a}&b=${b}
     Content-Type: application/json
@@ -146,6 +155,7 @@ GET`http://foo.org/bar?a=${a}&b=${b}
 
 ### Destructuring
 Destructuring allows binding using pattern matching, with support for matching arrays and objects.  Destructuring is fail-soft, similar to standard object lookup `foo["bar"]`, producing `undefined` values when not found.
+Destructuring permite vincular usando padrões de expressões regulares, com suporte à _arrays_ e _objects_.  Destructuring is fail-soft, similar to standard object lookup `foo["bar"]`, producing `undefined` values when not found.
 
 ```JavaScript
 // list matching
