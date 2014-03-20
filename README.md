@@ -442,7 +442,7 @@ System.set('jquery', Module({$: $})); // WARNING: não finalizado ainda
 
 ### Map + Set + WeakMap + WeakSet
 Efficient data structures for common algorithms.  WeakMaps provides leak-free object-key’d side tables.
-Estruturas de dados eficientes para algorítimos comuns. _WeakMaps_ fornecem um mapa seguro de objeto-chave.
+Estruturas de dados eficientes para algorítimos comuns. _WeakMaps_ fornecem um mapa seguro de <objeto-chave class=""></objeto-chave>
 
 ```JavaScript
 // Sets
@@ -470,9 +470,11 @@ ws.add({ data: 42 });
 
 ### Proxies
 Proxies enable creation of objects with the full range of behaviors available to host objects.  Can be used for interception, object virtualization, logging/profiling, etc.
+_Proxies_ permitem a criação de objetos com todos os comportamentos disponíveis no opjeto que o contém, Podem ser usados para interceptação, virtualização de objetos, _logs_, _profiles_, etc.
 
 ```JavaScript
 // Proxying a normal object
+// Proxy em um objeto normal
 var target = {};
 var handler = {
   get: function (receiver, name) {
@@ -486,6 +488,7 @@ p.world === 'Hello, world!';
 
 ```JavaScript
 // Proxying a function object
+// Proxy em  um objeto função
 var target = function () { return 'I am the target'; };
 var handler = {
   apply: function (receiver, ...args) {
@@ -498,6 +501,7 @@ p() === 'I am the proxy';
 ```
 
 There are traps available for all of the runtime-level meta-operations:
+Existem métodos disponíveis para todas as meta-operaçoes em tempo de execução:
 
 ```JavaScript
 var handler =
@@ -521,12 +525,13 @@ var handler =
 
 ### Symbols
 Symbols enable access control for object state.  Symbols allow properties to be keyed by either `string` (as in ES5) or `symbol`.  Symbols are a new primitive type. Optional `name` parameter used in debugging - but is not part of identity.  Symbols are unique (like gensym), but not private since they are exposed via reflection features like `Object.getOwnPropertySymbols`.
-
+_Symbols_ permitem controle sobre o estado do objeto. _Symbols_ permitem que propriedades sejam indexadas tanto por _string_ (como no ES5) como _symbol_. _Symbols_ são um novo tipo primitivo. Parâmetro opcional, `name` , usado em _debug_, mas não é parte da identidade. _Symbols_ são únicos (como gensym), mas não são privados já que são expostos em funcionalidades como`Object.getOwnPropertySymbols`.
 
 ```JavaScript
 (function() {
 
   // module scoped symbol
+  // symbol no escopo do módulo
   var key = Symbol("key");
 
   function MyClass(privateData) {
@@ -547,15 +552,21 @@ c["key"] === undefined
 
 ### Subclassable Built-ins
 In ES6, built-ins like `Array`, `Date` and DOM `Element`s can be subclassed.
+No ES6, objetos nativos como `Array`, `Date` e DOM `Element`s podem ter subclasses.
 
 Object construction for a function named `Ctor` now uses two-phases (both virtually dispatched):
+Contrução de objetos para uma função chamada  `Ctor` agora levam duas etapas (ambas disparadas virtualmente):
 - Call `Ctor[@@create]` to allocate the object, installing any special behavior
+- Chame `Ctor[@@create]` para alocar o objeto, instalando qualquer comportamento especial
 - Invoke constructor on new instance to initialize
+- Chame o construtor ou uma nova instancia para inicializar
 
 The known `@@create` symbol is available via `Symbol.create`.  Built-ins now expose their `@@create` explicitly.
+O simbolo `@@create`  estádisponível través de  `Symbol.create`.  Objetos nativos agora expôem seus métodos `@@create` explicitamente..
 
 ```JavaScript
 // Pseudo-code of Array
+// Pseudo-coódigo de Array
 class Array {
     constructor(...args) { /* ... */ }
     static [Symbol.create]() {
@@ -572,6 +583,9 @@ class MyArray extends Array {
 // Two-phase 'new':
 // 1) Call @@create to allocate object
 // 2) Invoke constructor on new instance
+// 'new' em duas fases:
+// 1) Chame @@create para alocar o obejto
+// 2) Chame o construtctor na nova instancia
 var arr = new MyArray();
 arr[1] = 12;
 arr.length == 2
@@ -579,6 +593,7 @@ arr.length == 2
 
 ### Math + Number + String + Object APIs
 Many new library additions, including core Math libraries, Array conversion helpers, and Object.assign for copying.
+Muitas novas adições, incluindo novas _libraries_ de matemática, conversão de _Arrays_ e _Object.assign_ para cópias.
 
 ```JavaScript
 Number.EPSILON
@@ -593,7 +608,9 @@ Math.imul(Math.pow(2, 32) - 1, Math.pow(2, 32) - 2) // 2
 "abc".repeat(3) // "abcabcabc"
 
 Array.from(document.querySelectorAll('*')) // Returns a real Array
+Array.from(document.querySelectorAll('*')) // retorna um Array verdadeiro
 Array.of(1, 2, 3) // Similar to new Array(...), but without special one-arg behavior
+Array.of(1, 2, 3) // Semelhante a new Array(...), mas sem comportamento especial de um argumento
 [0, 0, 0].fill(7, 1) // [0,7,7]
 [1,2,3].findIndex(x => x == 2) // 1
 ["a", "b", "c"].entries() // iterator [0, "a"], [1,"b"], [2,"c"]
@@ -605,6 +622,7 @@ Object.assign(Point, { origin: new Point(0,0) })
 
 ### Binary and Octal Literals
 Two new numeric literal forms are addded for binary (`b`) and octal (`o`).
+Duas novas formas de numeros literais foram adicionadas, para binários (`b`) e octais (`o`).
 
 ```JavaScript
 0b111110111 === 503 // true
@@ -613,6 +631,7 @@ Two new numeric literal forms are addded for binary (`b`) and octal (`o`).
 
 ### Promises
 Promises are a library for asynchronous programming.  Promises are a first class representation of a value that may be made available in the future.  Promises are used in many existing JavaScript libraries.
+_Promises_ são uma _library_ para programação assíncrona. _Promises_ são representações de primeira classe de um valor que pode estar disponível no futuro. _Promises_ são usadas em muitas _libraries_ javascript que já existem.
 
 ```JavaScript
 function timeout(duration = 0) {
@@ -632,13 +651,16 @@ var p = timeout(1000).then(() => {
 
 ### Reflect API
 Full reflection API exposing the runtime-level meta-operations on objects.  This is effectively the inverse of the Proxy API, and allows making calls corresponding to the same meta-operations as the proxy traps.  Especially useful for implementing proxies.
+A _Reflection API_  expõe as meta-operações em objetos em tempo de execução. De fato isto é o inverso da _Proxy API_, e permite fazer chamadas correspondentes as mesmas meta-operações que os métodos de _proxy_. Muito úteis pata implementação de _proxies_.
 
 ```JavaScript
-// No sample yet
+// Sem exemplo
 ```
 
 ### Tail Calls
 Calls in tail-position are guaranteed to not grow the stack unboundedly.  Makes recursive algorithms safe in the face of unbounded inputs.
+Chamadas no final são garantidas para não aumentar a fila ilimitadamente.
+Fazem algorítimos recursivos  mais seguros para dados inesperados.
 
 ```JavaScript
 function factorial(n, acc = 1) {
@@ -649,5 +671,7 @@ function factorial(n, acc = 1) {
 
 // Stack overflow in most implementations today,
 // but safe on arbitrary inputs in eS6
+// Estouro de memória na maioria das implentações de hoje,
+// mas seguro em entradas de dados aleatória no ES6
 factorial(100000)
 ```
