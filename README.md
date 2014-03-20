@@ -160,7 +160,7 @@ GET`http://foo.org/bar?a=${a}&b=${b}
 
 ### Destructuring
 Destructuring allows binding using pattern matching, with support for matching arrays and objects.  Destructuring is fail-soft, similar to standard object lookup `foo["bar"]`, producing `undefined` values when not found.
-Destructuring permite vincular usando padrões de expressões regulares, com suporte à _arrays_ e _objects_.  Destructuring is fail-soft, similar to standard object lookup `foo["bar"]`, producing `undefined` values when not found.
+Destructuring permite vincular usando padrões de expressões regulares, com suporte à _arrays_ e _objects_.  Destructuring é _fail-soft_, semelhante à busca padrão em objetos `foo["bar"]`, retornando o valor  `undefined`  quando não encontra.
 
 ```JavaScript
 // list matching
@@ -187,17 +187,19 @@ a === undefined;
 
 ### Default + Rest + Spread
 Callee-evaluated default parameter values.  Turn an array into consecutive arguments in a function call.  Bind trailing parameters to an array.  Rest replaces the need for `arguments` and addresses common cases more directly.
+Valores padrão nas chamadas de funções.  Transformação de um array em argumentos consegutivos em uma chamada de função, Vincular parametros sequenciais em um _array_. Substitui a necessidade de _arguments_ e  casos mais comuns.
 
 ```JavaScript
 function f(x, y=12) {
   // y is 12 if not passed (or passed as undefined)
+  // y vale 12 se não for passado (ou passado como undefined)
   return x + y;
 }
 f(3) == 15
 ```
 ```JavaScript
 function f(x, ...y) {
-  // y is an Array
+  // y é um Array
   return x * y.length;
 }
 f(3, "hello", true) == 6
@@ -206,12 +208,13 @@ f(3, "hello", true) == 6
 function f(x, y, z) {
   return x + y + z;
 }
-// Pass each elem of array as argument
+// Passa cada emelento do array como um argumentoargument
 f(...[1,2,3]) == 6
 ```
 
 ### Let + Const
 Block-scoped binding constructs.  `let` is the new `var`.  `const` is single-assignment.  Static restrictions prevent use before assignment.
+Blocos com escopo vinculado. `let` é o novo `var`.  `const` é definido uam evz apenas.  Restrições estáticas previnem o uso antes da declaração.
 
 
 ```JavaScript
@@ -220,11 +223,13 @@ function f() {
     let x;
     {
       // okay, block scoped name
+      // funciona, nome com escopo definido no bloco
       const x = "sneaky";
       // error, const
       x = "foo";
     }
     // error, already declared in block
+    // erro, já definido no bloco
     let x = "inner";
   }
 }
@@ -232,6 +237,7 @@ function f() {
 
 ### Iterators + For..Of
 Iterator objects enable custom iteration like CLR IEnumerable or Java Iteratable.  Generalize `for..in` to custom iterator-based iteration with `for..of`.  Don’t require realizing an array, enabling lazy design patterns like LINQ.
+Objetos Iterator permitem  iterações como CLR IEnumerable ou Java Iteratable.  Generalizar o `for..in`  para uma iteração customizada com `for..of`.  Não é necessário executar em um _array_, permitindo padrões mais flexíveis, como LINQ.
 
 ```JavaScript
 let fibonacci = {
@@ -248,6 +254,7 @@ let fibonacci = {
 
 for (var n of fibonacci) {
   // truncate the sequence at 1000
+  // para a sequencia em 1000
   if (n > 1000)
     break;
   print(n);
@@ -255,6 +262,7 @@ for (var n of fibonacci) {
 ```
 
 Iteration is based on these duck-typed interfaces (using [TypeScript](http://typescriptlang.org) type syntax for exposition only):
+A sintaxe de _Iteration_ é baseada nas interfaces (usando sintaxe do[TypeScript] (http://typescriptlang.org) para demonstração apenas):
 ```TypeScript
 interface IteratorResult {
   done: boolean;
@@ -270,8 +278,10 @@ interface Iterable {
 
 ### Generators
 Generators simplify iterator-authoring using `function*` and `yield`.  A function declared as function* returns a Generator instance.  Generators are subtypes of iterators which include additional  `next` and `throw`.  These enable values to flow back into the generator, so `yield` is an expression form which returns a value (or throws).
+_Generators_ simplificam a criação de iterações usando `function*` e `yield`. Uma func'ão declarada como _funcion*_ retorna uma instancia de um _Generator_. _Generators_ são subtipos de _iterators_ que incluem métodos adicionais,  `next` e `throw`. Eles permitem que valores sejam retornados ao _generator_, então `yield` é uma forma de expressão que retorna um valor.
 
 Note: Can also be used to enable ‘await’-like async programming, see also ES7 `await` proposal.
+Nota: Também pode ser usados para permitir 'esperar' como em programação assíncrona, veja também a proposta do ES7, `await`.
 
 ```JavaScript
 var fibonacci = {
@@ -295,6 +305,7 @@ for (var n of fibonacci) {
 ```
 
 The generator interface is (using [TypeScript](http://typescriptlang.org) type syntax for exposition only):
+A interface do generator é (usando a sintaxe do  [TypeScript](http://typescriptlang.org) para demonstração apenas):
 
 ```TypeScript
 interface Generator extends Iterator {
@@ -305,6 +316,7 @@ interface Generator extends Iterator {
 
 ### Comprehensions
 Array and generator comprehensions provide simple declarative list processing similar as used in many functional programming patterns.
+_Comprehensions_ de arrays e _generator_ fornecem um processamento declarativo simples, semelhante ao usado em muitos padrões de programação funcional.
 
 ```JavaScript
 // Array comprehensions
@@ -324,21 +336,27 @@ var results = (
 
 ### Unicode
 Non-breaking additions to support full Unicode, including new unicode literal form in strings and new RegExp `u` mode to handle code points, as well as new APIs to process strings at the 21bit code points level.  These additions support building global apps in JavaScript.
+Adições retroativas para suporte completo a Unicode, incluindo a nova forma literal do unicode em strings e o novo modo do RegExp `u`, para lidar com pontos no código, assim como novas APIs para processar _strings_ em códigos 21bit. Essas adições auxiliam a contrução de _apps_ globais em Javascript.
 
 ```JavaScript
 // same as ES5.1
+// o mesmo que no ES5.1
 "𠮷".length == 2
 
 // new RegExp behaviour, opt-in ‘u’
+// novo comportamento RegExp, opcionalopt-in ‘u’
 "𠮷".match(/./u)[0].length == 2
 
 // new form
+// nova sintaxe
 "\u{20BB7}"=="𠮷"=="\uD842\uDFB7"
 
 // new String ops
+// nova opção para string
 "𠮷".codePointAt(0) == 0x20BB7
 
 // for-of iterates code points
+// for-of itera em pontos de código
 for(var c of "𠮷") {
   console.log(c);
 }
@@ -346,6 +364,7 @@ for(var c of "𠮷") {
 
 ### Modules
 Language-level support for modules for component definition.  Codifies patterns from popular JavaScript module loaders (AMD, CommonJS). Runtime behaviour defined by a host-defined default loader.  Implicitly async model – no code executes until requested modules are available and processed.
+Suporte nativo para módulos e definição de componentes. Códifica padrões de carregamento de módulo populares (AMD, CommonJS). Comportamento de carregamento em tempo de execução definido por um padrão no _host_. Modelos implícitos assíncronos , nenhum código é executado até que os módulos requisitados estejam disponíveis e processados.
 
 ```JavaScript
 // lib/math.js
@@ -366,6 +385,7 @@ alert("2π = " + sum(pi, pi));
 ```
 
 Some additional features include `export default` and `export *`:
+Algumas funcionalidades adicionais incluem `export default` e `export *`:
 
 ```JavaScript
 // lib/mathplusplus.js
@@ -389,28 +409,40 @@ Module loaders support:
 - Global namespace isolation
 - Compilation hooks
 - Nested virtualization
+_Module loaders_ suportam:
+- carregamento dinâmico
+- isolamento de estado
+- isolamento de _namespace_ global
+- _hooks_ de compilação
+- virtualização aninhada 
 
 The default module loader can be configured, and new loaders can be constructed to evaluated and load code in isolated or constrained contexts.
+O _module loader_ padrão pode ser configurado e novos _loaders_ podem ser contruídos para avaliar e carregar código em contexto isolado ou restrito
 
 ```JavaScript
 // Dynamic loading – ‘System’ is default loader
+// Carregamento dinamico – ‘System’ é o loader padrão
 System.import('lib/math').then(function(m) {
   alert("2π = " + m.sum(m.pi, m.pi));
 });
 
 // Create execution sandboxes – new Loaders
+// Cria sandboxes de execução – novos Loaders
 var loader = new Loader({
   global: fixup(window) // replace ‘console.log’
 });
 loader.eval("console.log('hello world!');");
 
 // Directly manipulate module cache
+// Manipulação do módulo cache
 System.get('jquery');
 System.set('jquery', Module({$: $})); // WARNING: not yet finalized
+System.set('jquery', Module({$: $})); // WARNING: não finalizado ainda
 ```
 
 ### Map + Set + WeakMap + WeakSet
 Efficient data structures for common algorithms.  WeakMaps provides leak-free object-key’d side tables.
+Estruturas de dados eficientes para algorítimos comuns. _WeakMaps_ fornecem um mapa seguro de objeto-chave.
 
 ```JavaScript
 // Sets
