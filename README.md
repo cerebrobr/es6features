@@ -34,7 +34,7 @@ ES6 inclui as seguintes novas funcionalidades:
 
 ### Arrows
 
-_Arrows_ são abreviações de func'ões usando a sintaxe `=>`. Elas são semelhantes semanticamente  ao recurso equivalente do C#, Java 8 e do CoffeeScript. Elas supotam expressões ou conjuntos de instruções. Ao conrário de _function_, _arrows_ compartilham o mesmo `this` que o do código que o envolve.
+_Arrows_ são abreviações de funções usando a sintaxe `=>`. Elas são semelhantes semanticamente  ao recurso equivalente do C#, Java 8 e do CoffeeScript. Elas suportam expressões ou conjuntos de instruções. Ao contrário de _function_, _arrows_ compartilham o mesmo `this` que o do código que o envolve.
 
 ```JavaScript
 // Expressões
@@ -103,7 +103,7 @@ var obj = {
 ```
 
 ### Template Strings
-Template strings tornam muito fácil gerar _strings_. Ë semelhante à interpolação de _strings_ do Perl, Python e outros. Opcionalmente podmeos adicionar uma _tag_ que permitem a construção de uma string personalizada, evitando ataques com inserção de código ou montando estruturas de dados a partir do conteúdo de _strings_.
+Template strings tornam muito fácil gerar _strings_. Ë semelhante à interpolação de _strings_ do Perl, Python e outros. Opcionalmente podemos adicionar uma _tag_ que permitem a construção de uma string personalizada, evitando ataques com inserção de código ou montando estruturas de dados a partir do conteúdo de _strings_.
 
 ```JavaScript
 // Construção básica de uma string literal
@@ -151,7 +151,7 @@ a === undefined;
 ```
 
 ### Default + Rest + Spread
-Valores padrão nas chamadas de funções.  Transformação de um array em argumentos consegutivos em uma chamada de função, Vincular parametros sequenciais em um _array_. Substitui a necessidade de _arguments_ e  casos mais comuns.
+Valores padrão nas chamadas de funções. Transformação de um array em argumentos consegutivos em uma chamada de função, Vincular parametros sequenciais em um _array_. Substitui a necessidade de _arguments_ e  casos mais comuns.
 
 ```JavaScript
 function f(x, y=12) {
@@ -176,7 +176,7 @@ f(...[1,2,3]) == 6
 ```
 
 ### Let + Const
-Blocos com escopo vinculado. `let` é o novo `var`.  `const` é definido uam evz apenas.  Restrições estáticas previnem o uso antes da declaração.
+Blocos com escopo vinculado. `let` é o novo `var`. `const` é definido uma vez apenas. Restrições estáticas previnem o uso antes da declaração.
 
 
 ```JavaScript
@@ -196,7 +196,7 @@ function f() {
 ```
 
 ### Iterators + For..Of
-Objetos Iterator permitem  iterações como CLR IEnumerable ou Java Iteratable.  Generalizar o `for..in`  para uma iteração customizada com `for..of`.  Não é necessário executar em um _array_, permitindo padrões mais flexíveis, como LINQ.
+Objetos Iterator permitem iterações como CLR IEnumerable ou Java Iteratable. Generalizar o `for..in`  para uma iteração customizada com `for..of`. Não é necessário executar em um _array_, permitindo padrões mais flexíveis, como LINQ.
 
 ```JavaScript
 let fibonacci = {
@@ -235,7 +235,7 @@ interface Iterable {
 ```
 
 ### Generators
-_Generators_ simplificam a criação de iterações usando `function*` e `yield`. Uma func'ão declarada como _funcion*_ retorna uma instancia de um _Generator_. _Generators_ são subtipos de _iterators_ que incluem métodos adicionais,  `next` e `throw`. Eles permitem que valores sejam retornados ao _generator_, então `yield` é uma forma de expressão que retorna um valor.
+_Generators_ simplificam a criação de iterações usando `function*` e `yield`. Uma função declarada como _function*_ retorna uma instância de um _Generator_. _Generators_ são subtipos de _iterators_ que incluem métodos adicionais, `next` e `throw`. Eles permitem que valores sejam retornados ao _generator_, então `yield` é uma forma de expressão que retorna um valor.
 
 Nota: Também pode ser usados para permitir 'esperar' como em programação assíncrona, veja também a proposta do ES7, `await`.
 
@@ -404,7 +404,7 @@ ws.add({ data: 42 });
 ```
 
 ### Proxies
-_Proxies_ permitem a criação de objetos com todos os comportamentos disponíveis no opjeto que o contém, Podem ser usados para interceptação, virtualização de objetos, _logs_, _profiles_, etc.
+_Proxies_ permitem a criação de objetos com todos os comportamentos disponíveis no objeto que o contém, Podem ser usados para interceptação, virtualização de objetos, _logs_, _profiles_, etc.
 
 ```JavaScript
 // Proxying a normal object
@@ -433,7 +433,7 @@ var p = new Proxy(target, handler);
 p() === 'I am the proxy';
 ```
 
-Existem métodos disponíveis para todas as meta-operaçoes em tempo de execução:
+Existem métodos disponíveis para todas as meta-operações em tempo de execução:
 
 ```JavaScript
 var handler =
@@ -487,7 +487,7 @@ Contrução de objetos para uma função chamada  `Ctor` agora levam duas etapas
 - Chame `Ctor[@@create]` para alocar o objeto, instalando qualquer comportamento especial
 - Chame o construtor ou uma nova instancia para inicializar
 
-O simbolo `@@create`  estádisponível través de  `Symbol.create`.  Objetos nativos agora expôem seus métodos `@@create` explicitamente..
+O simbolo `@@create`  está disponível través de `Symbol.create`. Objetos nativos agora expôem seus métodos `@@create` explicitamente..
 
 ```JavaScript
 // Pseudo-código de Array
@@ -539,7 +539,7 @@ Object.assign(Point, { origin: new Point(0,0) })
 ```
 
 ### Binary and Octal Literals
-Duas novas formas de numeros literais foram adicionadas, para binários (`b`) e octais (`o`).
+Duas novas formas de números literais foram adicionadas, para binários (`b`) e octais (`o`).
 
 ```JavaScript
 0b111110111 === 503 // true
