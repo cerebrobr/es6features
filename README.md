@@ -2,9 +2,9 @@
 
 ## Introduction
 
-ECMAScript 6 é a próxima versão do padrão ECMAScript. A norma deverá ser ratificada em Dezembro de 2014. ES6 é um upgrade significativo na linguagem, e a primeira atualização desde que foi padronizada em 2009. A Veja a implementação dessas funcionalidades noas principais engines de javascript no link [Tabela de Compatibilidade do ECMAScript 6](http://kangax.github.io/es5-compat-table/es6/).
+ECMAScript 6 é a próxima versão do padrão ECMAScript. A norma deverá ser ratificada em Dezembro de 2014. ES6 é um upgrade significativo na linguagem, é a primeira atualização desde que foi padronizada em 2009. Veja a implementação dessas funcionalidades nas principais engines de javascript no link [Tabela de Compatibilidade do ECMAScript 6](http://kangax.github.io/es5-compat-table/es6/).
 
-Veja o [proposta de padrão ES6] (https://people.mozilla.org/ ~ jorendorff/es6-draft.html) para a especificação completa da linguagem ECMAScript 6.
+Veja a [proposta de padrão ES6] (https://people.mozilla.org/ ~ jorendorff/es6-draft.html) para a especificação completa da linguagem ECMAScript 6.
 
 ES6 inclui as seguintes novas funcionalidades:
 - [arrows](#arrows)
@@ -34,7 +34,7 @@ ES6 inclui as seguintes novas funcionalidades:
 
 ### Arrows
 
-_Arrows_ são abreviações de func'ões usando a sintaxe `=>`. Elas são semelhantes semanticamente  ao recurso equivalente do C#, Java 8 e do CoffeeScript. Elas supotam expressões ou conjuntos de instruções. Ao conrário de _function_, _arrows_ compartilham o mesmo `this` que o do código que o envolve.
+_Arrows_ são abreviações de funções usando a sintaxe `=>`. Elas são semelhantes semanticamente  ao recurso equivalente do C#, Java 8 e do CoffeeScript. Elas supotam expressões ou conjuntos de instruções. Ao conrário de _function_, _arrows_ compartilham o mesmo `this` que o do código que o envolve.
 
 ```JavaScript
 // Expressões
@@ -60,7 +60,7 @@ var joao = {
 
 ### Classes
 
-Classes ES6 são o padrão _prototype_ melhorado. Ter uma única e conveniente forma declarativa fazem os padrões de classes mais fáceis de usar e icentivam a interoperabilidade. Classes suportam herança no modelo _ prototype, _super calls_, instanciamento, métodos estáticos e construtores.
+Classes ES6 são o padrão _prototype_ melhorado. Ter uma única e conveniente forma declarativa fazem os padrões de classes mais fáceis de usar e icentivam a interoperabilidade. Classes suportam herança no modelo _ prototype, _super calls_, instânciamento, métodos estáticos e construtores.
 
 ```JavaScript
 class SkinnedMesh extends THREE.Mesh {
@@ -103,7 +103,7 @@ var obj = {
 ```
 
 ### Template Strings
-Template strings tornam muito fácil gerar _strings_. Ë semelhante à interpolação de _strings_ do Perl, Python e outros. Opcionalmente podmeos adicionar uma _tag_ que permitem a construção de uma string personalizada, evitando ataques com inserção de código ou montando estruturas de dados a partir do conteúdo de _strings_.
+Template strings tornam muito fácil gerar _strings_. É semelhante à interpolação de _strings_ do Perl, Python e outros. Opcionalmente podemos adicionar uma _tag_ que permitem a construção de uma string personalizada, evitando ataques com inserção de código ou montando estruturas de dados a partir do conteúdo de _strings_.
 
 ```JavaScript
 // Construção básica de uma string literal
@@ -125,7 +125,7 @@ GET`http://foo.org/bar?a=${a}&b=${b}
 ```
 
 ### Destructuring
-Destructuring permite vincular usando padrões de expressões regulares, com suporte à _arrays_ e _objects_.  Destructuring é _fail-soft_, semelhante à busca padrão em objetos `foo["bar"]`, retornando o valor  `undefined`  quando não encontra.
+Destructuring permite vincular usando padrões de expressões regulares, com suporte à _arrays_ e _objects_.  Destructuring é _fail-soft_, semelhante à busca padrão em objetos `foo["bar"]`, retornando o valor  `undefined`  quando não encontrado.
 
 ```JavaScript
 // list matching
@@ -151,7 +151,7 @@ a === undefined;
 ```
 
 ### Default + Rest + Spread
-Valores padrão nas chamadas de funções.  Transformação de um array em argumentos consegutivos em uma chamada de função, Vincular parametros sequenciais em um _array_. Substitui a necessidade de _arguments_ e  casos mais comuns.
+Valores padrão nas chamadas de funções.  Transformação de um array em argumentos consecutivos em uma chamada de função, Víncular parametros sequênciais em um _array_. Substitui a necessidade de _arguments_ e  casos mais comuns.
 
 ```JavaScript
 function f(x, y=12) {
@@ -176,7 +176,7 @@ f(...[1,2,3]) == 6
 ```
 
 ### Let + Const
-Blocos com escopo vinculado. `let` é o novo `var`.  `const` é definido uam evz apenas.  Restrições estáticas previnem o uso antes da declaração.
+Blocos com escopo vinculado. `let` é o novo `var`.  `const` é definido uam vez apenas.  Restrições estáticas previnem o uso antes da declaração.
 
 
 ```JavaScript
@@ -196,7 +196,7 @@ function f() {
 ```
 
 ### Iterators + For..Of
-Objetos Iterator permitem  iterações como CLR IEnumerable ou Java Iteratable.  Generalizar o `for..in`  para uma iteração customizada com `for..of`.  Não é necessário executar em um _array_, permitindo padrões mais flexíveis, como LINQ.
+Objetos Iteratores permitem  iterações como CLR IEnumerable ou Java Iteratable.  Generalizar o `for..in`  para uma iteração customizada com `for..of`.  Não é necessário executar em um _array_, permitindo padrões mais flexíveis, como LINQ.
 
 ```JavaScript
 let fibonacci = {
@@ -235,7 +235,7 @@ interface Iterable {
 ```
 
 ### Generators
-_Generators_ simplificam a criação de iterações usando `function*` e `yield`. Uma func'ão declarada como _funcion*_ retorna uma instancia de um _Generator_. _Generators_ são subtipos de _iterators_ que incluem métodos adicionais,  `next` e `throw`. Eles permitem que valores sejam retornados ao _generator_, então `yield` é uma forma de expressão que retorna um valor.
+_Generators_ simplificam a criação de iterações usando `function*` e `yield`. Uma função declarada como _funcion*_ retorna uma instância de um _Generator_. _Generators_ são subtipos de _iterators_ que incluem métodos adicionais,  `next` e `throw`. Eles permitem que valores sejam retornados ao _generator_, então `yield` é uma forma de expressão que retorna um valor.
 
 Nota: Também pode ser usados para permitir 'esperar' como em programação assíncrona, veja também a proposta do ES7, `await`.
 
@@ -433,7 +433,7 @@ var p = new Proxy(target, handler);
 p() === 'I am the proxy';
 ```
 
-Existem métodos disponíveis para todas as meta-operaçoes em tempo de execução:
+Existem métodos disponíveis para todas as meta-operações em tempo de execução:
 
 ```JavaScript
 var handler =
