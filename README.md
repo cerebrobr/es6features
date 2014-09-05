@@ -235,7 +235,7 @@ interface Iterable {
 ```
 
 ### Generators
-_Generators_ simplificam a criação de iterações usando `function*` e `yield`. Uma função declarada como _funcion*_ retorna uma instância de um _Generator_. _Generators_ são subtipos de _iterators_ que incluem métodos adicionais,  `next` e `throw`. Eles permitem que valores sejam retornados ao _generator_, então `yield` é uma forma de expressão que retorna um valor.
+_Generators_ simplificam a criação de iterações usando `function*` e `yield`. Uma função declarada como _function*_ retorna uma instância de um _Generator_. _Generators_ são subtipos de _iterators_ que incluem métodos adicionais,  `next` e `throw`. Eles permitem que valores sejam retornados ao _generator_, então `yield` é uma forma de expressão que retorna um valor.
 
 Nota: Também pode ser usados para permitir 'esperar' como em programação assíncrona, veja também a proposta do ES7, `await`.
 
@@ -404,7 +404,7 @@ ws.add({ data: 42 });
 ```
 
 ### Proxies
-_Proxies_ permitem a criação de objetos com todos os comportamentos disponíveis no opjeto que o contém, Podem ser usados para interceptação, virtualização de objetos, _logs_, _profiles_, etc.
+_Proxies_ permitem a criação de objetos com todos os comportamentos disponíveis no objeto que o contém, Podem ser usados para interceptação, virtualização de objetos, _logs_, _profiles_, etc.
 
 ```JavaScript
 // Proxying a normal object
@@ -485,7 +485,7 @@ No ES6, objetos nativos como `Array`, `Date` e DOM `Element`s podem ter subclass
 
 Contrução de objetos para uma função chamada  `Ctor` agora levam duas etapas (ambas disparadas virtualmente):
 - Chame `Ctor[@@create]` para alocar o objeto, instalando qualquer comportamento especial
-- Chame o construtor ou uma nova instancia para inicializar
+- Chame o construtor ou uma nova instância para inicializar
 
 O simbolo `@@create`  estádisponível través de  `Symbol.create`.  Objetos nativos agora expôem seus métodos `@@create` explicitamente..
 
