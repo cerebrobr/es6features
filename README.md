@@ -107,7 +107,7 @@ Template strings tornam muito fácil gerar _strings_. É semelhante à interpola
 
 ```JavaScript
 // Construção básica de uma string literal
-`Em javascript '\n' é uam quebra de linha.`
+`Em javascript '\n' é uma quebra de linha.`
 
 // Strings multilinha
 `Isto não funciona
