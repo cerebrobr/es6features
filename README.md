@@ -2,9 +2,9 @@
 
 ## Introduction
 
-ECMAScript 6 é a próxima versão do padrão ECMAScript. A norma deverá ser ratificada em Dezembro de 2014. ES6 é um upgrade significativo na linguagem, é a primeira atualização desde que foi padronizada em 2009. Veja a implementação dessas funcionalidades nas principais engines de javascript no link [Tabela de Compatibilidade do ECMAScript 6](http://kangax.github.io/es5-compat-table/es6/).
+ECMAScript 6, também conhecido como ECMAScript 2015, é a mais recente versão do padrão ECMAScript. ES6 é um upgrade significativo na linguagem, é a primeira atualização desde que foi padronizada em 2009. Veja a implementação dessas funcionalidades nas principais engines de javascript no link [Tabela de Compatibilidade do ECMAScript 6](http://kangax.github.io/es5-compat-table/es6/).
 
-Veja a [proposta de padrão ES6] (https://people.mozilla.org/ ~ jorendorff/es6-draft.html) para a especificação completa da linguagem ECMAScript 6.
+Veja o [padrão ES6](http://www.ecma-international.org/ecma-262/6.0/) para a especificação completa da linguagem ECMAScript 6.
 
 ES6 inclui as seguintes novas funcionalidades:
 - [arrows](#arrows)
